@@ -18,6 +18,13 @@ import G9 from '../../public/assets/images/gallery/G9.jpg';
 import G10 from '../../public/assets/images/gallery/G10.jpg';
 import G11 from '../../public/assets/images/gallery/G11.jpg';
 import G12 from '../../public/assets/images/gallery/G12.jpg';
+
+// Now importing puppies
+import RIO from '../../public/assets/images/puppies/RIO.jpg';
+import LEA from '../../public/assets/images/puppies/LEA.jpg';
+import WILL from '../../public/assets/images/puppies/WILL.jpg';
+
+
 const Index = () => {
   const features = [
     {
@@ -44,22 +51,22 @@ const Index = () => {
 
   const topDogs = [
     {
-      name: "King Maximus",
-      type: "XXL Male",
-      price: "$8,000",
-      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop"
+      name: "RIO",
+      type: "XL Tri Merle Male",
+      price: "$4,900",
+      image: RIO
     },
     {
-      name: "Royal Luna",
-      type: "XL Female",
+      name: "LEA",
+      type: "Blue-eyed Micro Female",
+      price: "$3,500",
+      image: LEA
+    },
+    {
+      name: "WILL",
+      type: "XXL AMerican Bully Male",
       price: "$6,500",
-      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=400&fit=crop"
-    },
-    {
-      name: "Elite Thunder",
-      type: "Pocket Male",
-      price: "$5,000",
-      image: "https://images.unsplash.com/photo-1534361960057-19889df7a21b?w=400&h=400&fit=crop"
+      image: WILL
     }
   ];
 
