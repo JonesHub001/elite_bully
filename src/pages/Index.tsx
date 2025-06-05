@@ -6,6 +6,18 @@ import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
 // Importing images
 import home from '../../public/assets/images/home.jpg';
+import G1 from '../../public/assets/images/gallery/G1.jpg';
+import G2 from '../../public/assets/images/gallery/G2.jpg';
+import G3 from '../../public/assets/images/gallery/G3.jpg';
+import G4 from '../../public/assets/images/gallery/G4.jpg';
+import G5 from '../../public/assets/images/gallery/G5.jpg';
+import G6 from '../../public/assets/images/gallery/G6.jpg';
+import G7 from '../../public/assets/images/gallery/G7.jpg';
+import G8 from '../../public/assets/images/gallery/G8.jpg';
+import G9 from '../../public/assets/images/gallery/G9.jpg';
+import G10 from '../../public/assets/images/gallery/G10.jpg';
+import G11 from '../../public/assets/images/gallery/G11.jpg';
+import G12 from '../../public/assets/images/gallery/G12.jpg';
 const Index = () => {
   const features = [
     {
@@ -52,18 +64,19 @@ const Index = () => {
   ];
 
   const galleryImages = [
-    "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1534361960057-19889df7a21b?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1591769225440-811ad7d6eab3?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1529927066849-79b791a69825?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&h=400&fit=crop"
+    G1,
+    G2,
+    G3,
+    G4,
+    G5,
+    G6,
+    G7,
+    G8,
+    G9,
+    G10,
+    G11,
+    G12
+   
   ];
 
   return (
