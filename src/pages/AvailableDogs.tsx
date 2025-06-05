@@ -3,7 +3,21 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
+import bg from '../../public/assets/images/puppies/pupbg.jpg';
+import FAME from '../../public/assets/images/puppies/FAME.jpg';
+import ISA from '../../public/assets/images/puppies/ISA.jpg';
+import JANE from '../../public/assets/images/puppies/JANE.jpg';
+import KATE from '../../public/assets/images/puppies/KATE.jpg';
+import LENA from '../../public/assets/images/puppies/LENA.jpg';
+import ROXY from '../../public/assets/images/puppies/ROXY.jpg';
+import TRU from '../../public/assets/images/puppies/TRU.jpg';
+import AXEL from '../../public/assets/images/puppies/AXEL.jpg';
+import CHILLY from '../../public/assets/images/puppies/CHILLY.jpg';
+import LUNA from '../../public/assets/images/puppies/LUNA.jpg';
+import LOLA from '../../public/assets/images/puppies/LOLA.jpg';
+import JAX from '../../public/assets/images/puppies/JAX.jpg';
+import RAYA from '../../public/assets/images/puppies/RAYA.jpg'
+import LOVEY from '../../public/assets/images/puppies/LOVEY.jpg'
 const AvailableDogs = () => {
   const [selectedType, setSelectedType] = useState('All');
   
@@ -12,58 +26,134 @@ const AvailableDogs = () => {
   const availableDogs = [
     {
       id: 1,
-      name: "King Maximus",
-      type: "XXL",
-      age: "8 months",
+      name: "AXEL",
+      type: "XL",
+      age: "11 weeks",
       price: "$8,000",
-      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&h=500&fit=crop",
-      description: "Exceptional XXL male with champion bloodlines"
+      image: AXEL,
+      description: "Exceptional XL male with champion bloodlines"
     },
     {
       id: 2,
       name: "Royal Luna",
       type: "XL",
-      age: "6 months",
-      price: "$6,500",
-      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&h=500&fit=crop",
-      description: "Beautiful XL female with perfect structure"
+      age: "10 weeks",
+      price: "$7,500",
+      image: LUNA,
+      description: "Beautiful XL female with perfect structure and blue eyes"
     },
     {
       id: 3,
-      name: "Elite Thunder",
-      type: "Pocket",
-      age: "4 months",
-      price: "$5,000",
-      image: "https://images.unsplash.com/photo-1534361960057-19889df7a21b?w=500&h=500&fit=crop",
-      description: "Compact pocket male with incredible presence"
+      name: "JAX",
+      type: "XL",
+      age: "9 weeks",
+      price: "$6,900",
+      image: JAX,
+      description: "Compact XL Tri merle male with incredible presence"
     },
     {
       id: 4,
-      name: "Diamond Princess",
-      type: "XXL",
-      age: "7 months",
-      price: "$7,500",
-      image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&h=500&fit=crop",
-      description: "Premium XXL female with royal genetics"
+      name: " Princess LOLA",
+      type: "micro",
+      age: "8 weeks",
+      price: "$4,500",
+      image:LOLA,
+      description: "Premium chocolate micro female with royal genetics"
     },
     {
       id: 5,
-      name: "Shadow Beast",
+      name: "FAME",
       type: "XL",
-      age: "5 months",
-      price: "$6,000",
-      image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=500&h=500&fit=crop",
-      description: "Powerful XL male with intimidating presence"
+      age: "12 weeks",
+      price: "$8,000",
+      image: FAME,
+      description: "Powerful XL chocolate tri merle female with intimidating presence"
     },
     {
       id: 6,
-      name: "Tiny Titan",
-      type: "Micro",
-      age: "3 months",
-      price: "$4,500",
-      image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&h=500&fit=crop",
-      description: "Adorable micro bully with big personality"
+      name: "KATE",
+      type: "XL",
+      age: "9 weeks",
+      price: "$5,500",
+      image: KATE,
+      description: "Adorable XL American bully with big personality"
+    },   
+    {
+      id: 7,
+      name: "ISA",
+      type: "XL",
+      age: "6 weeks",
+      price: "$3,500",
+      image: ISA,
+      description: "Impressive XL female with strong build and great temperament"
+    },
+    {
+      id: 8,
+      name: "JANE",
+      type: "XL",
+      age: "11 weeks",
+      price: "$7,000",
+      image: JANE,
+      description: "Stunning dual chocolate tri merle female with incredible presence"
+    },
+ 
+    {
+      id: 10,
+      name: "LENA",
+      type: "XL",
+      age: "8 weeks",
+      price: "$5,000",
+      image: LENA,
+      description: "Beautiful dual chocolate tri merle female with incredible presence"
+    },
+    {
+      id: 11,
+      name: "ROXY",
+      type: "XL",
+      age: "6 weeks",
+      price: "$3,900",
+      image: ROXY,
+      description: "Stunning dual chocolate merle female with incredible presence"
+    },
+    {
+      id: 12,
+      name: "TRU",
+      type: "XL",
+      age: "6 weeks",
+      price: "$3,500",
+      image: TRU,
+      description: "Lilac blue eyes female with incredible presence"
+    },
+   
+    {
+      id: 14,
+      name: "RAYA",
+      type: "XL",
+      age: "6 weeks",
+      price: "$6,500",
+      image: RAYA,
+      description: "Gorgeous lilac tri chocolate with incredible presence"
+    },
+     {
+      id: 13,
+      name: "CHILLY",
+      type: "XL",
+      age: "10 weeks",
+      price: "$5,500",
+      image: CHILLY,
+      description: "Gorgeous dual chocolate female with incredible presence"
+    },
+    {
+      id: 15,
+      name: "LOVEY",
+      type: "XL",
+      age: "6 weeks",
+      price: "$6,500",
+      image: LOVEY,
+      description: "Gorgeous lilac tri chocolate with incredible presence"
     }
+
+
   ];
 
   const filteredDogs = selectedType === 'All' 
@@ -75,8 +165,8 @@ const AvailableDogs = () => {
       <Navigation />
       
       {/* Header */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-        <div className="absolute inset-0 hero-bg" style={{backgroundImage: "url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1920&h=1080&fit=crop')"}}></div>
+      <section className="relative py-20 bg-gradient-to-br from-black via-gray-100 to-black overflow-hidden">
+        <div className="absolute inset-0 hero-bg" style={{backgroundImage: `url(${bg})`}}></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
