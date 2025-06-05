@@ -4,7 +4,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
-
+// Importing images
+import home from '@/assets/home-hero.jpg';
 const Index = () => {
   const features = [
     {
@@ -72,8 +73,8 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
-        <div className="absolute inset-0 hero-bg" style={{backgroundImage: "url('https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=1920&h=1080&fit=crop')"}}></div>
-        
+        <div className="absolute inset-0 hero-bg" style={{backgroundImage: `url(${home})`}}></div>
+
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <div className="mb-6 sm:mb-8 animate-fade-in">
             <img 
