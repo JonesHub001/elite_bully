@@ -14,54 +14,128 @@ const Cart = () => {
   const generatePDF = () => {
     const doc = new jsPDF();
     
-    // Header
-    doc.setFontSize(20);
-    doc.text('Elite Bully Production', 20, 20);
-    doc.setFontSize(16);
-    doc.text('Invoice', 20, 30);
+    // Header with company name
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Elite Bully Production', 20, 25);
     
-    // Date
+    // Invoice title and number
+    doc.setFontSize(18);
+    doc.text('INVOICE', 20, 40);
     doc.setFontSize(10);
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 40);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Invoice #: EBP-${Date.now().toString().slice(-6)}`, 20, 48);
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 55);
     
-    // Contact info
-    doc.text('Email: topelitebullies@gmail.com', 20, 50);
-    doc.text('Facebook: Elite Bully Production', 20, 55);
-    
-    // Items header
+    // Company contact info section
     doc.setFontSize(12);
-    doc.text('Item', 20, 70);
-    doc.text('Qty', 100, 70);
-    doc.text('Price', 130, 70);
-    doc.text('Total', 160, 70);
+    doc.setFont('helvetica', 'bold');
+    doc.text('From:', 20, 70);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Elite Bully Production', 20, 78);
+    doc.text('Email: topelitebullies@gmail.com', 20, 85);
+    doc.text('Facebook: Elite Bully Production', 20, 92);
     
-    // Draw line
-    doc.line(20, 72, 190, 72);
+    // Client info section
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Bill To:', 120, 70);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Client Name: _________________________', 120, 78);
+    doc.text('Email: ______________________________', 120, 85);
+    doc.text('Phone: ______________________________', 120, 92);
+    
+    // Items table header
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('ITEM DESCRIPTION', 20, 115);
+    doc.text('QTY', 120, 115);
+    doc.text('UNIT PRICE', 145, 115);
+    doc.text('TOTAL', 170, 115);
+    
+    // Draw header line
+    doc.setLineWidth(0.5);
+    doc.line(20, 118, 190, 118);
     
     // Items
-    let yPosition = 80;
+    let yPosition = 128;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    
     items.forEach((item) => {
-      doc.setFontSize(10);
-      doc.text(item.name.substring(0, 40), 20, yPosition);
-      doc.text(item.quantity.toString(), 100, yPosition);
-      doc.text(`$${item.price.toFixed(2)}`, 130, yPosition);
-      doc.text(`$${(item.price * item.quantity).toFixed(2)}`, 160, yPosition);
-      yPosition += 10;
+      // Wrap long item names
+      const itemName = item.name.length > 45 ? item.name.substring(0, 42) + '...' : item.name;
+      doc.text(itemName, 20, yPosition);
+      doc.text(item.quantity.toString(), 125, yPosition);
+      doc.text(`$${item.price.toFixed(2)}`, 150, yPosition);
+      doc.text(`$${(item.price * item.quantity).toFixed(2)}`, 175, yPosition);
+      yPosition += 12;
     });
     
-    // Total
-    doc.line(20, yPosition, 190, yPosition);
+    // Subtotal and total section
     yPosition += 10;
-    doc.setFontSize(12);
-    doc.text(`Total: $${totalPrice.toFixed(2)}`, 160, yPosition);
+    doc.setLineWidth(0.3);
+    doc.line(140, yPosition, 190, yPosition);
+    yPosition += 8;
     
-    // Payment instruction
+    doc.setFont('helvetica', 'normal');
+    doc.text('Subtotal:', 140, yPosition);
+    doc.text(`$${totalPrice.toFixed(2)}`, 175, yPosition);
+    yPosition += 8;
+    
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('TOTAL DUE:', 140, yPosition);
+    doc.text(`$${totalPrice.toFixed(2)}`, 175, yPosition);
+    
+    // Payment instructions section
     yPosition += 20;
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('PAYMENT INSTRUCTIONS:', 20, yPosition);
+    yPosition += 10;
+    
     doc.setFontSize(10);
-    doc.text('Please send this invoice to us via:', 20, yPosition);
-    doc.text('Email: topelitebullies@gmail.com', 20, yPosition + 10);
-    doc.text('Facebook: Elite Bully Production', 20, yPosition + 20);
-    doc.text('We accept: CashApp, PayPal, Zelle, Revolut, Apple Pay', 20, yPosition + 30);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Please send this invoice along with payment to:', 20, yPosition);
+    yPosition += 8;
+    doc.text('• Email: topelitebullies@gmail.com', 25, yPosition);
+    yPosition += 8;
+    doc.text('• Facebook: Elite Bully Production', 25, yPosition);
+    yPosition += 12;
+    doc.text('We accept: CashApp, PayPal, Zelle, Revolut, Apple Pay', 20, yPosition);
+    
+    // Signature section
+    yPosition += 25;
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('SIGNATURES:', 20, yPosition);
+    yPosition += 15;
+    
+    // Client signature
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Client Signature:', 20, yPosition);
+    doc.line(55, yPosition, 120, yPosition);
+    doc.text('Date:', 125, yPosition);
+    doc.line(135, yPosition, 170, yPosition);
+    
+    yPosition += 20;
+    
+    // Company signature
+    doc.text('Elite Bully Production:', 20, yPosition);
+    doc.line(70, yPosition, 135, yPosition);
+    doc.text('Date:', 140, yPosition);
+    doc.line(150, yPosition, 185, yPosition);
+    
+    // Footer terms
+    yPosition += 20;
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'italic');
+    doc.text('Thank you for your business! This invoice is valid for 30 days.', 20, yPosition);
+    doc.text('All sales are final. Please contact us with any questions.', 20, yPosition + 8);
     
     // Save the PDF
     doc.save(`elite-bully-invoice-${Date.now()}.pdf`);
@@ -163,7 +237,7 @@ const Cart = () => {
               className="w-full bg-gold-600 hover:bg-gold-700 text-black"
             >
               <Download className="h-4 w-4 mr-2" />
-              Download Invoice PDF
+              Download Professional Invoice PDF
             </Button>
             <p className="text-sm text-gray-500 text-center">
               Send this invoice to us via email or Facebook to complete your order

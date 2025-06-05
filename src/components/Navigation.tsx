@@ -27,7 +27,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/cf61067b-c97b-447b-b834-3e767676f562.png" 
               alt="Elite Bully Production" 
-              className="h-8 sm:h-10 lg:h-12 w-auto"
+              className="h-12 sm:h-16 lg:h-20 w-auto "
             />
             <div className="text-gold-400 font-bold text-sm sm:text-base lg:text-xl hidden xs:block">
               <span className="hidden sm:inline">Elite Bully Production</span>
@@ -60,7 +60,7 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gold-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-400"
             >
-              {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              {isOpen ? <X className="h-8 w-8 sm:h-10 sm:w-10" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </button>
           </div>
         </div>

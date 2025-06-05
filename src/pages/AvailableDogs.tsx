@@ -81,7 +81,7 @@ const AvailableDogs = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black mb-6">
-            <span className="royal-gradient">Available Dogs</span>
+            <span className="royal-gradient">Available Puppies</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Browse our current selection of elite American Bullies ready for their forever homes
