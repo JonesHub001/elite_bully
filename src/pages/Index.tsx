@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
 // Importing images
-import home from '@/assets/home-hero.jpg';
+import home from '@/assets/images/home-hero.jpg';
 const Index = () => {
   const features = [
     {
