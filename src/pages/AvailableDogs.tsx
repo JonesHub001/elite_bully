@@ -18,6 +18,7 @@ import LOLA from '../../public/assets/images/puppies/LOLA.jpg';
 import JAX from '../../public/assets/images/puppies/JAX.jpg';
 import RAYA from '../../public/assets/images/puppies/RAYA.jpg'
 import LOVEY from '../../public/assets/images/puppies/LOVEY.jpg'
+import DIANA from '../../public/assets/images/puppies/DIANA.jpg'
 const AvailableDogs = () => {
   const [selectedType, setSelectedType] = useState('All');
   
@@ -43,6 +44,16 @@ const AvailableDogs = () => {
       description: "Beautiful XL female with perfect structure and blue eyes"
     },
     {
+      id:16,
+      name: "DIANA",
+      type: "XXL",
+      age: "11 weeks",
+      price: "$8,500",
+      image: DIANA,
+      description: "Stunning  Dual chocolate Female with incredible structure"
+
+    },
+    {
       id: 3,
       name: "JAX",
       type: "XL",
@@ -63,7 +74,7 @@ const AvailableDogs = () => {
     {
       id: 5,
       name: "FAME",
-      type: "XL",
+      type: "XXL",
       age: "12 weeks",
       price: "$8,000",
       image: FAME,
@@ -72,9 +83,9 @@ const AvailableDogs = () => {
     {
       id: 6,
       name: "KATE",
-      type: "XL",
+      type: "XXL",
       age: "9 weeks",
-      price: "$5,500",
+      price: "$7,500",
       image: KATE,
       description: "Adorable XL American bully with big personality"
     },   
