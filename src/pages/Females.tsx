@@ -4,7 +4,12 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
+import micro from '../../public/assets/images/females/micro.jpg'
+import pocket from '../../public/assets/images/females/pocket.jpg'
+import XXL1 from '../../public/assets/images/females/XXL1.jpg'
+import XL1 from '../../public/assets/images/females/XL1.jpg'
+import XXL2 from '../../public/assets/images/females/XXL2.jpg'
+import XL2 from '../../public/assets/images/females/XL2.jpg';
 const Females = () => {
   const [selectedType, setSelectedType] = useState('All');
   
@@ -17,7 +22,7 @@ const Females = () => {
       type: "XXL",
       age: "2 years",
       breeding: "Available for breeding",
-      image: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?w=500&h=500&fit=crop",
+      image: XXL1,
       description: "Champion bloodline XXL female with exceptional temperament"
     },
     {
@@ -26,7 +31,7 @@ const Females = () => {
       type: "XL",
       age: "1.5 years",
       breeding: "Available for breeding",
-      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&h=500&fit=crop",
+      image: XL1,
       description: "Beautiful XL female with perfect structure and conformation"
     },
     {
@@ -35,7 +40,7 @@ const Females = () => {
       type: "Pocket",
       age: "3 years",
       breeding: "Currently pregnant",
-      image: "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=500&h=500&fit=crop",
+      image: pocket,
       description: "Compact pocket female with incredible presence and loyalty"
     },
     {
@@ -44,7 +49,7 @@ const Females = () => {
       type: "XXL",
       age: "2.5 years",
       breeding: "Available for breeding",
-      image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&h=500&fit=crop",
+      image: XXL2,
       description: "Premium XXL female with royal genetics and stunning appearance"
     },
     {
@@ -53,7 +58,7 @@ const Females = () => {
       type: "XL",
       age: "1 year",
       breeding: "Too young for breeding",
-      image: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?w=500&h=500&fit=crop",
+      image: XL2,
       description: "Young XL female with promising bloodline and exceptional potential"
     },
     {
@@ -62,7 +67,7 @@ const Females = () => {
       type: "Micro",
       age: "2 years",
       breeding: "Available for breeding",
-      image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&h=500&fit=crop",
+      image: micro,
       description: "Adorable micro female with big personality and loving nature"
     }
   ];
