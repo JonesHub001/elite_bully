@@ -12,7 +12,11 @@ import LENA from '../../public/assets/images/puppies/LENA.jpg';
 import ROXY from '../../public/assets/images/puppies/ROXY.jpg';
 import TRU from '../../public/assets/images/puppies/TRU.jpg';
 import AXEL from '../../public/assets/images/puppies/AXEL.jpg';
-import CHILLY from '../../public/assets/images/puppies/CHILLY.jpg';
+import JODI from '../../public/assets/images/puppies/JODI.jpg';
+import MUNCHKIN from '../../public/assets/images/puppies/MUNCHKIN.jpg';
+import LUCA from '../../public/assets/images/puppies/LUCA.jpg';
+import LIT from '../../public/assets/images/puppies/LIT.jpg';
+import UNO from '../../public/assets/images/puppies/UNO.jpg';
 import LUNA from '../../public/assets/images/puppies/LUNA.jpg';
 import LOLA from '../../public/assets/images/puppies/LOLA.jpg';
 import JAX from '../../public/assets/images/puppies/JAX.jpg';
@@ -94,9 +98,36 @@ const AvailableDogs = () => {
       name: "ISA",
       type: "XL",
       age: "6 weeks",
-      price: "$3,500",
+      price: "$4,500",
       image: ISA,
       description: "Impressive XL female with strong build and great temperament"
+    },
+    {
+      id: 9,
+      name: "LUCA",
+      type: "Pocket",
+      age: "5 weeks",
+      price: "$3,500",
+      image: LUCA,
+      description: "Stunning dual tri merle male with thick bone and good structure"
+    },
+    {
+      id: 17,
+      name: "LIT",
+      type: "Pocket",
+      age: "5 weeks",
+      price: "$3,500",
+      image: LIT,
+      description: "Incredible dual chocolate tri merle female with thick bone and good structure"
+    },  
+    {
+      id: 18,
+      name: "UNO",
+      type: "Pocket",
+      age: "5 weeks",
+      price: "$3,500",
+      image: UNO,
+      description: "Incredible dual chocolate tri merle male with thick bone and good structure"
     },
     {
       id: 8,
@@ -138,22 +169,22 @@ const AvailableDogs = () => {
    
     {
       id: 14,
-      name: "RAYA",
-      type: "XL",
+      name: "MUNCHKIN",
+      type: "Pocket",
       age: "6 weeks",
       price: "$6,500",
-      image: RAYA,
-      description: "Gorgeous lilac tri chocolate with incredible presence"
+      image: MUNCHKIN,
+      description: "Gorgeous  tri merle Male chocolate with incredible presence"
     },
-    //  {
-    //   id: 13,
-    //   name: "CHILLY",
-    //   type: "XL",
-    //   age: "10 weeks",
-    //   price: "$5,500",
-    //   image: CHILLY,
-    //   description: "Gorgeous dual chocolate female with incredible presence"
-    // },
+     {
+      id: 13,
+      name: "JODI",
+      type: "Pocket",
+      age: "5 weeks",
+      price: "$3,500",
+      image: JODI,
+      description: "Gorgeous dual lilac female with perfect structure"
+    },
     {
       id: 15,
       name: "LOVEY",
