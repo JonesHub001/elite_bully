@@ -145,15 +145,15 @@ const AvailableDogs = () => {
       image: RAYA,
       description: "Gorgeous lilac tri chocolate with incredible presence"
     },
-     {
-      id: 13,
-      name: "CHILLY",
-      type: "XL",
-      age: "10 weeks",
-      price: "$5,500",
-      image: CHILLY,
-      description: "Gorgeous dual chocolate female with incredible presence"
-    },
+    //  {
+    //   id: 13,
+    //   name: "CHILLY",
+    //   type: "XL",
+    //   age: "10 weeks",
+    //   price: "$5,500",
+    //   image: CHILLY,
+    //   description: "Gorgeous dual chocolate female with incredible presence"
+    // },
     {
       id: 15,
       name: "LOVEY",
