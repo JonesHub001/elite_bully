@@ -3,7 +3,9 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Calendar, Crown, Star } from 'lucide-react';
-
+import p1 from '../../public/assets/images/parents/p1.jpg';
+import p2 from '../../public/assets/images/parents/p2.jpg';
+import bg from '../../public/assets/images/puppies/pupbg.jpg';
 const UpcomingBreeds = () => {
   const upcomingLitters = [
     {
@@ -15,7 +17,7 @@ const UpcomingBreeds = () => {
       expectedPrice: "$7,000 - $9,000",
       slotsAvailable: 3,
       description: "Exceptional XXL bloodlines combining power and elegance",
-      image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&h=500&fit=crop"
+      image: p1
     },
     {
       id: 2,
@@ -26,7 +28,7 @@ const UpcomingBreeds = () => {
       expectedPrice: "$5,500 - $7,500",
       slotsAvailable: 5,
       description: "Perfect XL structure with champion genetics",
-      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&h=500&fit=crop"
+      image: p2
     },
     {
       id: 3,
@@ -34,7 +36,7 @@ const UpcomingBreeds = () => {
       dam: "Tiny Princess",
       type: "Pocket",
       expectedDate: "May 2024",
-      expectedPrice: "$4,000 - $6,000",
+      expectedPrice: "$3,000 - $7,000",
       slotsAvailable: 2,
       description: "Compact pocket bullies with incredible presence",
       image: "https://images.unsplash.com/photo-1534361960057-19889df7a21b?w=500&h=500&fit=crop"
@@ -70,9 +72,9 @@ const UpcomingBreeds = () => {
       {/* Header */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-2"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=1920&h=1080&fit=crop')"
+            backgroundImage: `url(${bg})`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
@@ -162,7 +164,7 @@ const UpcomingBreeds = () => {
                         </Button>
                       </Link>
                       <a 
-                        href="https://wa.me/1234567890" 
+                        href="+19014571775" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex-1"

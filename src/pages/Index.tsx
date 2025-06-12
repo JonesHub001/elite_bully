@@ -124,7 +124,7 @@ const Index = () => {
               </Button>
             </Link>
             <a 
-              href="tel:+1234567890"
+              href="tel:+19014571775"
               className="w-full sm:w-auto"
             >
               <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto">

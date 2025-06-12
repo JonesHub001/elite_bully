@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -27,14 +27,27 @@ const AvailableDogs = () => {
   const [selectedType, setSelectedType] = useState('All');
   
   const dogTypes = ['All', 'XXL', 'XL', 'Pocket', 'Micro', 'Pitbull'];
-  
-  const availableDogs = [
+
+  // Helper to check if a dog is female
+  const isFemale = (dog) => {
+    const name = dog.name?.toLowerCase() || '';
+    const desc = dog.description?.toLowerCase() || '';
+    return name.includes('female') || name.includes('princess') || desc.includes('female');
+  };
+
+  // Helper to get random price in range
+  const getRandomPrice = (min, max) => {
+    // Round to nearest 100
+    return Math.round((Math.random() * (max - min) + min) / 100) * 100;
+  };
+
+  // Memoize so prices don't change on re-render
+  const availableDogs = useMemo(() => [
     {
       id: 1,
       name: "AXEL",
       type: "XL",
       age: "11 weeks",
-      price: "$8,000",
       image: AXEL,
       description: "Exceptional XL male with champion bloodlines"
     },
@@ -43,7 +56,6 @@ const AvailableDogs = () => {
       name: "Royal Luna",
       type: "XL",
       age: "10 weeks",
-      price: "$7,500",
       image: LUNA,
       description: "Beautiful XL female with perfect structure and blue eyes"
     },
@@ -52,7 +64,6 @@ const AvailableDogs = () => {
       name: "DIANA",
       type: "XXL",
       age: "11 weeks",
-      price: "$8,500",
       image: DIANA,
       description: "Stunning  Dual chocolate Female with incredible structure"
 
@@ -62,7 +73,6 @@ const AvailableDogs = () => {
       name: "JAX",
       type: "XL",
       age: "9 weeks",
-      price: "$6,900",
       image: JAX,
       description: "Compact XL Tri merle male with incredible presence"
     },
@@ -71,7 +81,6 @@ const AvailableDogs = () => {
       name: " Princess LOLA",
       type: "micro",
       age: "8 weeks",
-      price: "$4,500",
       image:LOLA,
       description: "Premium chocolate micro female with royal genetics"
     },
@@ -80,7 +89,6 @@ const AvailableDogs = () => {
       name: "FAME",
       type: "XXL",
       age: "12 weeks",
-      price: "$8,000",
       image: FAME,
       description: "Powerful XL chocolate tri merle female with intimidating presence"
     },
@@ -89,7 +97,6 @@ const AvailableDogs = () => {
       name: "KATE",
       type: "XXL",
       age: "9 weeks",
-      price: "$7,500",
       image: KATE,
       description: "Adorable XL American bully with big personality"
     },   
@@ -98,7 +105,6 @@ const AvailableDogs = () => {
       name: "ISA",
       type: "XL",
       age: "6 weeks",
-      price: "$4,500",
       image: ISA,
       description: "Impressive XL female with strong build and great temperament"
     },
@@ -107,7 +113,6 @@ const AvailableDogs = () => {
       name: "LUCA",
       type: "Pocket",
       age: "5 weeks",
-      price: "$3,500",
       image: LUCA,
       description: "Stunning dual tri merle male with thick bone and good structure"
     },
@@ -116,7 +121,6 @@ const AvailableDogs = () => {
       name: "LIT",
       type: "Pocket",
       age: "5 weeks",
-      price: "$3,500",
       image: LIT,
       description: "Incredible dual chocolate tri merle female with thick bone and good structure"
     },  
@@ -125,7 +129,6 @@ const AvailableDogs = () => {
       name: "UNO",
       type: "Pocket",
       age: "5 weeks",
-      price: "$3,500",
       image: UNO,
       description: "Incredible dual chocolate tri merle male with thick bone and good structure"
     },
@@ -134,7 +137,6 @@ const AvailableDogs = () => {
       name: "JANE",
       type: "XL",
       age: "11 weeks",
-      price: "$7,000",
       image: JANE,
       description: "Stunning dual chocolate tri merle female with incredible presence"
     },
@@ -144,7 +146,6 @@ const AvailableDogs = () => {
       name: "LENA",
       type: "XL",
       age: "8 weeks",
-      price: "$5,000",
       image: LENA,
       description: "Beautiful dual chocolate tri merle female with incredible presence"
     },
@@ -153,7 +154,6 @@ const AvailableDogs = () => {
       name: "ROXY",
       type: "XL",
       age: "6 weeks",
-      price: "$3,900",
       image: ROXY,
       description: "Stunning dual chocolate merle female with incredible presence"
     },
@@ -162,7 +162,6 @@ const AvailableDogs = () => {
       name: "TRU",
       type: "XL",
       age: "6 weeks",
-      price: "$3,500",
       image: TRU,
       description: "Lilac blue eyes female with incredible presence"
     },
@@ -172,7 +171,6 @@ const AvailableDogs = () => {
       name: "MUNCHKIN",
       type: "Pocket",
       age: "6 weeks",
-      price: "$6,500",
       image: MUNCHKIN,
       description: "Gorgeous  tri merle Male chocolate with incredible presence"
     },
@@ -181,7 +179,6 @@ const AvailableDogs = () => {
       name: "JODI",
       type: "Pocket",
       age: "5 weeks",
-      price: "$3,500",
       image: JODI,
       description: "Gorgeous dual lilac female with perfect structure"
     },
@@ -190,13 +187,38 @@ const AvailableDogs = () => {
       name: "LOVEY",
       type: "XL",
       age: "6 weeks",
-      price: "$6,500",
       image: LOVEY,
       description: "Gorgeous lilac tri chocolate with incredible presence"
     }
-
-
-  ];
+  ].map((dog) => {
+    let min = 0;
+    let max = 0;
+    let type = dog.type.toLowerCase();
+    if (type === 'xxl') {
+      min = 3500;
+      max = 7000;
+    } else if (type === 'xl') {
+      min = 2500;
+      max = 5000;
+    } else if (type === 'pocket') {
+      min = 2000;
+      max = 4000;
+    } else if (type === 'micro') {
+      min = 1700;
+      max = 3000;
+    }
+    let price = dog.price;
+    if (min && max) {
+      price = getRandomPrice(min, max);
+      if (isFemale(dog)) {
+        price = Math.round(price * 1.2 / 100) * 100; // 20% more, rounded to nearest 100
+      }
+      price = `$${price.toLocaleString()}`;
+    } else if (dog.price) {
+      price = dog.price;
+    }
+    return { ...dog, price };
+  }), []);
 
   const filteredDogs = selectedType === 'All' 
     ? availableDogs 

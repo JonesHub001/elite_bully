@@ -37,7 +37,7 @@ const Footer = () => {
             <h4 className="text-base sm:text-lg font-semibold text-gold-400">Contact Us</h4>
             <div className="space-y-3">
               <a 
-                href="tel:+1234567890" 
+                href="tel:+19014571775" 
                 className="flex items-center space-x-3 text-gray-300 hover:text-gold-400 transition-colors text-sm sm:text-base"
               >
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />

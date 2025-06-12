@@ -10,6 +10,7 @@ import XXL1 from '../../public/assets/images/females/XXL1.jpg'
 import XL1 from '../../public/assets/images/females/XL1.jpg'
 import XXL2 from '../../public/assets/images/females/XXL2.jpg'
 import XL2 from '../../public/assets/images/females/XL2.jpg';
+import bg from '../../public/assets/images/females/pocket.jpg'
 const Females = () => {
   const [selectedType, setSelectedType] = useState('All');
   
@@ -82,7 +83,7 @@ const Females = () => {
       
       {/* Header */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-        <div className="absolute inset-0 hero-bg" style={{backgroundImage: "url('https://images.unsplash.com/photo-1466721591366-2d5fba72006d?w=1920&h=1080&fit=crop')"}}></div>
+        <div className="absolute inset-0 hero-bg" style={{backgroundImage:`url(${bg})`}}></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
