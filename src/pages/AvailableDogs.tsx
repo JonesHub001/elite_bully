@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -25,9 +25,10 @@ import LOVEY from '../../public/assets/images/puppies/LOVEY.jpg'
 import DIANA from '../../public/assets/images/puppies/DIANA.jpg'
 const AvailableDogs = () => {
   const [selectedType, setSelectedType] = useState('All');
-  
+  const [priceRange, setPriceRange] = useState([0, 8000]); // [min, max]
+
   const dogTypes = ['All', 'XXL', 'XL', 'Pocket', 'Micro', 'Pitbull'];
-  
+
   const availableDogs = [
     {
       id: 1,
@@ -198,9 +199,21 @@ const AvailableDogs = () => {
 
   ];
 
-  const filteredDogs = selectedType === 'All' 
-    ? availableDogs 
-    : availableDogs.filter(dog => dog.type === selectedType);
+  // Helper to parse price string like "$4,500" to number
+  const parsePrice = (priceStr) => Number(priceStr.replace(/[^0-9.-]+/g, ""));
+
+  // Find min and max prices for slider bounds
+  const allPrices = availableDogs.map(dog => parsePrice(dog.price));
+  const minPrice = Math.min(...allPrices);
+  const maxPrice = Math.max(...allPrices);
+
+  // Filter by type and price
+  const filteredDogs = availableDogs.filter(dog => {
+    const price = parsePrice(dog.price);
+    const inType = selectedType === 'All' || dog.type === selectedType;
+    const inPrice = price >= priceRange[0] && price <= priceRange[1];
+    return inType && inPrice;
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -224,7 +237,7 @@ const AvailableDogs = () => {
       {/* Filter Section */}
       <section className="py-8 bg-gray-900/50 border-b border-gold-600/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
             {dogTypes.map((type) => (
               <button
                 key={type}
@@ -238,6 +251,36 @@ const AvailableDogs = () => {
                 {type}
               </button>
             ))}
+          </div>
+          {/* Price Range Filter */}
+          <div className="flex flex-col items-center gap-2">
+            <label className="text-gray-300 font-semibold">
+              Price Range: ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}
+            </label>
+            <div className="flex gap-4 w-full max-w-xs">
+              <input
+                type="range"
+                min={minPrice}
+                max={maxPrice}
+                value={priceRange[0]}
+                onChange={e => {
+                  const val = Number(e.target.value);
+                  setPriceRange([val > priceRange[1] ? priceRange[1] : val, priceRange[1]]);
+                }}
+                className="w-full accent-gold-600"
+              />
+              <input
+                type="range"
+                min={minPrice}
+                max={maxPrice}
+                value={priceRange[1]}
+                onChange={e => {
+                  const val = Number(e.target.value);
+                  setPriceRange([priceRange[0], val < priceRange[0] ? priceRange[0] : val]);
+                }}
+                className="w-full accent-gold-600"
+              />
+            </div>
           </div>
         </div>
       </section>
