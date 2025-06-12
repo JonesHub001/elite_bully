@@ -66,25 +66,6 @@ const Testimonials = () => {
     }
   ];
 
-  const videoTestimonials = [
-    {
-      id: 1,
-      name: "Tony Rodriguez",
-      location: "Chicago, IL",
-      dogName: "Beast",
-      thumbnail: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
-      videoUrl: "#"
-    },
-    {
-      id: 2,
-      name: "Amanda Brooks",
-      location: "Denver, CO",
-      dogName: "Royal",
-      thumbnail: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
-      videoUrl: "#"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -188,41 +169,15 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Video Testimonials */}
+      {/* Why Choose Us Section */}
       <section className="py-20 bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-16">
-            <span className="royal-gradient">Video</span> Testimonials
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-8">
+            Why <span className="royal-gradient">Elite Bully Production</span> is the Best
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {videoTestimonials.map((video) => (
-              <div 
-                key={video.id}
-                className="bg-black/50 rounded-xl overflow-hidden border border-gold-600/20 hover:border-gold-400/40 transition-all duration-300 cursor-pointer group"
-              >
-                <div className="relative aspect-video">
-                  <img 
-                    src={video.thumbnail} 
-                    alt={`${video.name} testimonial`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-all duration-300">
-                    <div className="bg-gold-600 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-bold text-white text-lg">{video.name}</h4>
-                  <p className="text-gray-400">{video.location}</p>
-                  <p className="text-gold-400 text-sm mt-1">Owner of {video.dogName}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="text-xl text-gray-300 mb-8">
+            At Elite Bully Production, we are committed to excellence in every aspect of our breeding program. Our dogs are raised with love, socialized from birth, and come from world-class bloodlines. We provide lifetime support to our families, ensure the health and temperament of every puppy, and deliver worldwide with the utmost care. Our reputation is built on trust, transparency, and a passion for creating royal companions that exceed expectations. Join the Elite family and experience the difference that true dedication and expertise make.
+          </p>
         </div>
       </section>
 
