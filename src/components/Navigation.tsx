@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -12,7 +11,6 @@ const Navigation = () => {
     { name: 'Available Puppies', path: '/available-dogs' },
     { name: 'Females', path: '/females' },
     { name: 'Upcoming Breeds', path: '/upcoming-breeds' },
-    { name: 'Shop', path: '/shop' },
     { name: 'Reserve Now', path: '/reserve' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Contact', path: '/contact' },
