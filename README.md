@@ -71,3 +71,27 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+
+## Supabase (new project setup)
+
+If your previous Supabase project was paused, create a new one and wire this app to it:
+
+1. Create a new Supabase project.
+2. In this repo, copy env template and fill your new project values:
+   ```sh
+   cp .env.example .env
+   ```
+   - `VITE_SUPABASE_URL` → your new project URL (`https://<project-ref>.supabase.co`)
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` → your new project's anon/publishable key
+3. Create required tables/policies by running SQL in Supabase SQL Editor:
+   - `supabase/migrations/202602150001_init_forms.sql`
+4. (Optional) If you use Supabase CLI locally, update `supabase/config.toml` `project_id` to your new project ref and link it.
+5. Start the app:
+   ```sh
+   npm run dev
+   ```
+
+Forms that depend on Supabase:
+- Reservation form (`reservation_requests`)
+- Newsletter signup (`newsletter_subscriptions`)

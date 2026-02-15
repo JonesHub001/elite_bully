@@ -20,6 +20,7 @@ import UNO from '../../public/assets/images/puppies/UNO.jpg';
 import LUNA from '../../public/assets/images/puppies/LUNA.jpg';
 import LOLA from '../../public/assets/images/puppies/LOLA.jpg';
 import JAX from '../../public/assets/images/puppies/JAX.jpg';
+import { CONTACT } from '@/lib/contact';
 import RAYA from '../../public/assets/images/puppies/RAYA.jpg'
 import LOVEY from '../../public/assets/images/puppies/LOVEY.jpg'
 import DIANA from '../../public/assets/images/puppies/DIANA.jpg'
@@ -352,12 +353,12 @@ const AvailableDogs = () => {
               </Button>
             </Link>
             <a 
-              href="https://wa.me/1234567890" 
+              href={CONTACT.whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
             >
               <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black text-lg px-8 py-4">
-                Message Us
+                WhatsApp Us
               </Button>
             </a>
           </div>
@@ -369,4 +370,6 @@ const AvailableDogs = () => {
   );
 };
 
+
 export default AvailableDogs;
+
