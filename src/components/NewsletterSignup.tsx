@@ -6,6 +6,13 @@ import { toast } from '@/hooks/use-toast';
 import { Mail } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
+const isMissingSupabaseTableError = (error: { code?: string; message?: string; details?: string } | null) => {
+  if (!error) return false;
+
+  const combinedErrorText = `${error.message ?? ''} ${error.details ?? ''}`.toLowerCase();
+  return error.code === 'PGRST205' || combinedErrorText.includes('newsletter_subscriptions');
+};
+
 const NewsletterSignup = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +33,13 @@ const NewsletterSignup = () => {
           toast({
             title: "Already Subscribed",
             description: "This email is already subscribed to our newsletter.",
+            variant: "destructive"
+          });
+        } else if (isMissingSupabaseTableError(error)) {
+          console.error('Newsletter table is missing or not accessible:', error);
+          toast({
+            title: "Database setup required",
+            description: "Newsletter table is not available yet. Please run the Supabase migration and try again.",
             variant: "destructive"
           });
         } else {
