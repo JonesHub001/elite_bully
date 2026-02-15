@@ -118,3 +118,17 @@ Fix:
 - Open Supabase SQL Editor for your active project.
 - Run `supabase/migrations/202602150001_init_forms.sql`.
 - Retry the form submission.
+
+
+## Admin dashboard (approvals)
+
+A dashboard page is available at `/dashboard` to view and approve:
+- Reservation requests
+- Newsletter subscribers
+
+To enable dashboard reads/updates and newsletter approval status, run:
+- `supabase/migrations/202602150002_dashboard_approvals.sql`
+
+> Note: this migration enables anon select/update policies for dashboard functionality.
+> For production, restrict these policies to authenticated admin users.
+
