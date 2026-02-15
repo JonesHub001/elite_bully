@@ -95,3 +95,18 @@ If your previous Supabase project was paused, create a new one and wire this app
 Forms that depend on Supabase:
 - Reservation form (`reservation_requests`)
 - Newsletter signup (`newsletter_subscriptions`)
+
+
+### Quick verification
+
+Run this command to verify the app wiring for Supabase + forms:
+
+```sh
+npm run check:supabase-forms
+```
+
+This static check confirms:
+- Supabase client env wiring exists.
+- Reservation form writes to `reservation_requests`.
+- Newsletter form writes to `newsletter_subscriptions`.
+
