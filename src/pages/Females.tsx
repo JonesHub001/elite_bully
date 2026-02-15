@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { CONTACT } from '@/lib/contact';
 import micro from '../../public/assets/images/females/micro.jpg'
 import pocket from '../../public/assets/images/females/pocket.jpg'
 import XXL1 from '../../public/assets/images/females/XXL1.jpg'
@@ -182,12 +183,12 @@ const Females = () => {
               </Button>
             </Link>
             <a 
-              href="https://wa.me/1234567890" 
+              href={CONTACT.whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
             >
               <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black text-lg px-8 py-4">
-                Contact Us
+                WhatsApp Us
               </Button>
             </a>
           </div>
@@ -199,4 +200,6 @@ const Females = () => {
   );
 };
 
+
 export default Females;
+
