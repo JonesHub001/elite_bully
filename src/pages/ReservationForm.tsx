@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { toast } from '@/hooks/use-toast';
 import { Crown, Shield, DollarSign } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { CONTACT } from '@/lib/contact';
 
 const ReservationForm = () => {
   const [formData, setFormData] = useState({
@@ -308,23 +309,15 @@ const ReservationForm = () => {
           <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
             Prefer to Contact Us Directly?
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
             <a 
-              href="tel:+1234567890"
-              className="flex-1"
-            >
-              <Button className="elite-button w-full text-base sm:text-lg py-4 sm:py-6">
-                Call Us Now
-              </Button>
-            </a>
-            <a 
-              href="https://facebook.com/elitebullyproduction" 
-              target="_blank" 
+              href={CONTACT.whatsappUrl}
+              target="_blank"
               rel="noopener noreferrer"
               className="flex-1"
             >
-              <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black w-full text-base sm:text-lg py-4 sm:py-6">
-                Facebook Message
+              <Button className="elite-button w-full text-base sm:text-lg py-4 sm:py-6">
+                WhatsApp Us Now
               </Button>
             </a>
           </div>

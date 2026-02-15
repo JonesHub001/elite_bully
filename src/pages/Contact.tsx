@@ -2,7 +2,8 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Phone, Facebook, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { CONTACT } from '@/lib/contact';
 
 const Contact = () => {
   return (
@@ -38,36 +39,20 @@ const Contact = () => {
               <div className="bg-gold-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold-500 transition-colors duration-300">
                 <Phone className="h-8 w-8 text-black" />
               </div>
-              <h3 className="text-xl font-bold text-gold-400 mb-2">Call Us</h3>
-              <p className="text-gray-400 mb-4">Speak directly with our team</p>
+              <h3 className="text-xl font-bold text-gold-400 mb-2">WhatsApp Us</h3>
+              <p className="text-gray-400 mb-4">Chat with our team on WhatsApp</p>
               <a 
-                href="tel:+1234567890"
-                className="inline-block"
-              >
-                <Button className="elite-button">
-                  +1 (234) 567-8900
-                </Button>
-              </a>
-            </div>
-
-            {/* Facebook */}
-            <div className="bg-black/50 rounded-xl p-8 border border-gold-600/20 hover:border-gold-400/40 transition-all duration-300 text-center group hover:transform hover:scale-105">
-              <div className="bg-gold-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold-500 transition-colors duration-300">
-                <Facebook className="h-8 w-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold text-gold-400 mb-2">Facebook</h3>
-              <p className="text-gray-400 mb-4">Follow our updates</p>
-              <a 
-                href="https://www.facebook.com/profile.php?id=61576572466514" 
-                target="_blank" 
+                href={CONTACT.whatsappUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
               >
                 <Button className="elite-button">
-                  Follow Us
+                  {CONTACT.phoneDisplay}
                 </Button>
               </a>
             </div>
+
 
             {/* Email */}
             <div className="bg-black/50 rounded-xl p-8 border border-gold-600/20 hover:border-gold-400/40 transition-all duration-300 text-center group hover:transform hover:scale-105">
@@ -77,7 +62,7 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-gold-400 mb-2">Email</h3>
               <p className="text-gray-400 mb-4">Detailed inquiries</p>
               <a 
-                href="mailto:topelitebullies@gmail.com"
+                href={`mailto:${CONTACT.email}`}
                 className="inline-block"
               >
                 <Button className="elite-button">
@@ -225,15 +210,6 @@ const Contact = () => {
             <a href="/reserve">
               <Button className="elite-button text-lg px-8 py-4">
                 Reserve Now
-              </Button>
-            </a>
-            <a 
-              href="https://www.facebook.com/profile.php?id=61576572466514" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black text-lg px-8 py-4">
-                Facebook Message
               </Button>
             </a>
           </div>

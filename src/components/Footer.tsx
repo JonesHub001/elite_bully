@@ -1,5 +1,6 @@
 
-import { Facebook, Phone, Mail } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+import { CONTACT } from '@/lib/contact';
 
 const Footer = () => {
   const paymentMethods = [
@@ -37,23 +38,17 @@ const Footer = () => {
             <h4 className="text-base sm:text-lg font-semibold text-gold-400">Contact Us</h4>
             <div className="space-y-3">
               <a 
-                href="tel:+19297041742" 
-                className="flex items-center space-x-3 text-gray-300 hover:text-gold-400 transition-colors text-sm sm:text-base"
-              >
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                <span>Call Us</span>
-              </a>
-               <a 
-                href="https://www.facebook.com/" 
-                target="_blank" 
+                href={CONTACT.whatsappUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 text-gray-300 hover:text-gold-400 transition-colors text-sm sm:text-base"
               >
-                <Facebook className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                <span>Facebook</span>
-              </a> 
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                <span>WhatsApp: {CONTACT.phoneDisplay}</span>
+              </a>
+
               <a 
-                href="mailto:topelitebullies@gmail.com"
+                href={`mailto:${CONTACT.email}`}
                 className="flex items-center space-x-3 text-gray-300 hover:text-gold-400 transition-colors text-sm sm:text-base"
               >
                 <Mail className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />

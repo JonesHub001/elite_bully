@@ -6,6 +6,7 @@ import { Calendar, Crown, Star } from 'lucide-react';
 import p1 from '../../public/assets/images/parents/p1.jpg';
 import p2 from '../../public/assets/images/parents/p2.jpg';
 import bg from '../../public/assets/images/puppies/pupbg.jpg';
+import { CONTACT } from '@/lib/contact';
 const UpcomingBreeds = () => {
   const upcomingLitters = [
     {
@@ -164,13 +165,13 @@ const UpcomingBreeds = () => {
                         </Button>
                       </Link>
                       <a 
-                        href="+19014571775" 
-                        target="_blank" 
+                        href={CONTACT.whatsappUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1"
                       >
                         <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black w-full">
-                          Ask Questions
+                          Ask on WhatsApp
                         </Button>
                       </a>
                     </div>
@@ -230,4 +231,6 @@ const UpcomingBreeds = () => {
   );
 };
 
+
 export default UpcomingBreeds;
+

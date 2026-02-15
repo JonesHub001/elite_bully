@@ -23,6 +23,7 @@ import G12 from '../../public/assets/images/gallery/G12.jpg';
 import RIO from '../../public/assets/images/puppies/RIO.jpg';
 import LEA from '../../public/assets/images/puppies/LEA.jpg';
 import WILL from '../../public/assets/images/puppies/WILL.jpg';
+import { CONTACT } from '@/lib/contact';
 
 
 const Index = () => {
@@ -124,11 +125,13 @@ const Index = () => {
               </Button>
             </Link>
             <a 
-              href="tel:+19014571775"
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
               <Button variant="outline" className="border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto">
-                Call to Reserve
+                WhatsApp to Reserve
               </Button>
             </a>
           </div>

@@ -35,7 +35,6 @@ const Cart = () => {
     doc.setFont('helvetica', 'normal');
     doc.text('Elite Bully Production', 20, 78);
     doc.text('Email: topelitebullies@gmail.com', 20, 85);
-    doc.text('Facebook: Elite Bully Production', 20, 92);
     
     // Client info section
     doc.setFontSize(12);
@@ -103,7 +102,7 @@ const Cart = () => {
     yPosition += 8;
     doc.text('• Email: topelitebullies@gmail.com', 25, yPosition);
     yPosition += 8;
-    doc.text('• Facebook: Elite Bully Production', 25, yPosition);
+    doc.text('• WhatsApp: +1 (937) 946-9290', 25, yPosition);
     yPosition += 12;
     doc.text('We accept: CashApp, PayPal, Zelle, Revolut, Apple Pay', 20, yPosition);
     
@@ -240,7 +239,7 @@ const Cart = () => {
               Download Professional Invoice PDF
             </Button>
             <p className="text-sm text-gray-500 text-center">
-              Send this invoice to us via email or Facebook to complete your order
+              Send this invoice to us via email or WhatsApp to complete your order
             </p>
           </div>
         )}
