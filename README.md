@@ -84,6 +84,8 @@ If your previous Supabase project was paused, create a new one and wire this app
    ```
    - `VITE_SUPABASE_URL` → your new project URL (`https://<project-ref>.supabase.co`)
    - `VITE_SUPABASE_PUBLISHABLE_KEY` → your new project's anon/publishable key
+   - `VITE_ADMIN_USERNAME` → dashboard login username
+   - `VITE_ADMIN_PASSWORD` → dashboard login password
 3. Create required tables/policies by running SQL in Supabase SQL Editor:
    - `supabase/migrations/202602150001_init_forms.sql`
 4. (Optional) If you use Supabase CLI locally, update `supabase/config.toml` `project_id` to your new project ref and link it.
@@ -95,3 +97,47 @@ If your previous Supabase project was paused, create a new one and wire this app
 Forms that depend on Supabase:
 - Reservation form (`reservation_requests`)
 - Newsletter signup (`newsletter_subscriptions`)
+
+
+### Quick verification
+
+Run this command to verify the app wiring for Supabase + forms:
+
+```sh
+npm run check:supabase-forms
+```
+
+This static check confirms:
+- Supabase client env wiring exists.
+- Reservation form writes to `reservation_requests`.
+- Newsletter form writes to `newsletter_subscriptions`.
+
+### Troubleshooting form 404 errors from Supabase
+
+If you see a browser/network error like `.../rest/v1/newsletter_subscriptions 404` or `PGRST205`, the table likely does not exist in your current Supabase project yet.
+
+Fix:
+- Open Supabase SQL Editor for your active project.
+- Run `supabase/migrations/202602150001_init_forms.sql`.
+- Retry the form submission.
+
+
+## Admin dashboard (approvals)
+
+A dashboard page is available at `/dashboard` to view and approve:
+- Reservation requests
+- Newsletter subscribers
+
+To enable dashboard reads/updates and newsletter approval status, run:
+- `supabase/migrations/202602150002_dashboard_approvals.sql`
+
+> Note: this migration enables anon select/update policies for dashboard functionality.
+> For production, restrict these policies to authenticated admin users.
+
+
+
+### Admin route protection
+
+- `/dashboard` is protected by a username/password login at `/admin-login`.
+- Credentials are checked against `VITE_ADMIN_USERNAME` and `VITE_ADMIN_PASSWORD`.
+- Session is stored in browser session storage and can be cleared with the dashboard logout button.

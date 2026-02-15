@@ -85,7 +85,7 @@ const Testimonials = () => {
             <span className="royal-gradient">Testimonials</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Hear from our satisfied elite family members across the world
+            Hear from our satisfied elite families across the U.S. and select international destinations
           </p>
         </div>
       </section>
@@ -95,11 +95,11 @@ const Testimonials = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-gold-400 mb-2">500+</div>
+              <div className="text-4xl font-bold text-gold-400 mb-2">320+</div>
               <div className="text-gray-300">Happy Families</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-gold-400 mb-2">5.0</div>
+              <div className="text-4xl font-bold text-gold-400 mb-2">4.9</div>
               <div className="text-gray-300 flex items-center justify-center">
                 <span className="mr-2">Average Rating</span>
                 <div className="flex">
@@ -108,14 +108,16 @@ const Testimonials = () => {
                   ))}
                 </div>
               </div>
+              <p className="text-xs text-gray-500 mt-2">Based on 180+ verified buyer reviews</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-gold-400 mb-2">15+</div>
+              <div className="text-4xl font-bold text-gold-400 mb-2">31</div>
+              <div className="text-gray-300">U.S. States Served</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-gold-400 mb-2">4</div>
               <div className="text-gray-300">Countries Served</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-gold-400 mb-2">10+</div>
-              <div className="text-gray-300">Years Experience</div>
+              <p className="text-xs text-gray-500 mt-2">Canada • Australia • New Zealand • England</p>
             </div>
           </div>
         </div>
