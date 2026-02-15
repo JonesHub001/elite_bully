@@ -1,1 +1,2 @@
-project_id = "jvxixyypxqxhqbpmhyir"
+# Set this to your new Supabase project ref after creating the replacement project.
+project_id = "YOUR_NEW_PROJECT_REF"
