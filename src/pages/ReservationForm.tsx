@@ -10,6 +10,13 @@ import { Crown, Shield, DollarSign } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { CONTACT } from '@/lib/contact';
 
+const isMissingSupabaseTableError = (error: { code?: string; message?: string; details?: string } | null) => {
+  if (!error) return false;
+
+  const combinedErrorText = `${error.message ?? ''} ${error.details ?? ''}`.toLowerCase();
+  return error.code === 'PGRST205' || combinedErrorText.includes('reservation_requests');
+};
+
 const ReservationForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -51,12 +58,21 @@ const ReservationForm = () => {
         });
 
       if (error) {
-        console.error('Error submitting reservation:', error);
-        toast({
-          title: "Error",
-          description: "There was an error submitting your reservation. Please try again.",
-          variant: "destructive"
-        });
+        if (isMissingSupabaseTableError(error)) {
+          console.error('Reservation table is missing or not accessible:', error);
+          toast({
+            title: "Database setup required",
+            description: "Reservation table is not available yet. Please run the Supabase migration and try again.",
+            variant: "destructive"
+          });
+        } else {
+          console.error('Error submitting reservation:', error);
+          toast({
+            title: "Error",
+            description: "There was an error submitting your reservation. Please try again.",
+            variant: "destructive"
+          });
+        }
         return;
       }
 

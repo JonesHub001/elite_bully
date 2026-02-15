@@ -110,3 +110,11 @@ This static check confirms:
 - Reservation form writes to `reservation_requests`.
 - Newsletter form writes to `newsletter_subscriptions`.
 
+### Troubleshooting form 404 errors from Supabase
+
+If you see a browser/network error like `.../rest/v1/newsletter_subscriptions 404` or `PGRST205`, the table likely does not exist in your current Supabase project yet.
+
+Fix:
+- Open Supabase SQL Editor for your active project.
+- Run `supabase/migrations/202602150001_init_forms.sql`.
+- Retry the form submission.
