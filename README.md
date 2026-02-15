@@ -84,6 +84,8 @@ If your previous Supabase project was paused, create a new one and wire this app
    ```
    - `VITE_SUPABASE_URL` → your new project URL (`https://<project-ref>.supabase.co`)
    - `VITE_SUPABASE_PUBLISHABLE_KEY` → your new project's anon/publishable key
+   - `VITE_ADMIN_USERNAME` → dashboard login username
+   - `VITE_ADMIN_PASSWORD` → dashboard login password
 3. Create required tables/policies by running SQL in Supabase SQL Editor:
    - `supabase/migrations/202602150001_init_forms.sql`
 4. (Optional) If you use Supabase CLI locally, update `supabase/config.toml` `project_id` to your new project ref and link it.
@@ -132,3 +134,10 @@ To enable dashboard reads/updates and newsletter approval status, run:
 > Note: this migration enables anon select/update policies for dashboard functionality.
 > For production, restrict these policies to authenticated admin users.
 
+
+
+### Admin route protection
+
+- `/dashboard` is protected by a username/password login at `/admin-login`.
+- Credentials are checked against `VITE_ADMIN_USERNAME` and `VITE_ADMIN_PASSWORD`.
+- Session is stored in browser session storage and can be cleared with the dashboard logout button.

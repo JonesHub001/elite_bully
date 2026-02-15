@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { clearAdminAuthenticated } from '@/lib/adminAuth';
 
 type ReservationRow = {
   id: string;
@@ -24,6 +26,7 @@ type NewsletterRow = {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [reservations, setReservations] = useState<ReservationRow[]>([]);
   const [subscribers, setSubscribers] = useState<NewsletterRow[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -88,6 +91,13 @@ const Dashboard = () => {
     loadData();
   };
 
+
+  const handleLogout = () => {
+    clearAdminAuthenticated();
+    toast({ title: 'Signed out', description: 'Admin session ended.' });
+    navigate('/admin-login');
+  };
+
   const approveSubscriber = async (id: string) => {
     const { error } = await supabase
       .from('newsletter_subscriptions')
@@ -116,9 +126,14 @@ const Dashboard = () => {
               </h1>
               <p className="text-gray-400 mt-2">Review and approve reservations and newsletter subscribers.</p>
             </div>
-            <Button onClick={loadData} disabled={isRefreshing} className="elite-button w-full sm:w-auto">
-              {isRefreshing ? 'Refreshing...' : 'Refresh'}
-            </Button>
+            <div className="flex gap-2 w-full sm:w-auto">
+              <Button onClick={loadData} disabled={isRefreshing} className="elite-button w-full sm:w-auto">
+                {isRefreshing ? 'Refreshing...' : 'Refresh'}
+              </Button>
+              <Button onClick={handleLogout} variant="outline" className="w-full sm:w-auto">
+                Logout
+              </Button>
+            </div>
           </div>
 
           {isLoading ? (
