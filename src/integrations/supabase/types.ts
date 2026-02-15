@@ -12,18 +12,21 @@ export type Database = {
       newsletter_subscriptions: {
         Row: {
           active: boolean
+          approval_status: string
           email: string
           id: string
           subscribed_at: string
         }
         Insert: {
           active?: boolean
+          approval_status?: string
           email: string
           id?: string
           subscribed_at?: string
         }
         Update: {
           active?: boolean
+          approval_status?: string
           email?: string
           id?: string
           subscribed_at?: string
